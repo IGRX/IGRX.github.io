@@ -18,7 +18,12 @@ export default class UIScene extends Phaser.Scene {
     }
 
     create() {
-        const buildBtn = this.add.image(this.cameras.main.width - 100, 80, 'btnBuild')
+
+        // 获取主相机的视口尺寸
+        const width = this.cameras.main.width;
+        const height = this.cameras.main.height;
+
+        const buildBtn = this.add.image(width - 100, 80, 'btnBuild')
             .setInteractive()
             .setScrollFactor(0); // 🔒 不跟随 camera
 
@@ -27,7 +32,7 @@ export default class UIScene extends Phaser.Scene {
             this.gameContext.setBuildMode(BUILD_MODE.BUILD);
         });
 
-        const removeBtn = this.add.image(this.cameras.main.width - 100, 160, 'btnRemove')
+        const removeBtn = this.add.image(width - 100, 160, 'btnRemove')
             .setInteractive()
             .setScrollFactor(0);
 

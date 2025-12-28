@@ -13,11 +13,20 @@ const config = {
     width: 1920,// 游戏画布宽度
     height: 1080,// 游戏画布高度，这里正好和64契合，方便做地图
     backgroundColor: '#333',// 背景颜色
+
+    // 自动缩放配置
+    scale: {
+        mode: Phaser.Scale.FIT,          // 关键：自动缩放填满屏幕
+        autoCenter: Phaser.Scale.CENTER_BOTH,  // 居中显示
+        parent: 'game-container',        // 如果你的HTML里有这个容器
+    },
+
     // 物理系统（这里用最简单的 arcade）
     physics: {
         default: 'arcade',
         arcade: { debug: true }, // true 可以看到碰撞框，碰撞框就是图片大小
     },
+
     // 游戏包含的场景
     scene: [
         new GameScene(gameContext),
